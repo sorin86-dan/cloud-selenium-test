@@ -31,14 +31,14 @@ public class BaseTest {
     protected void setUp(@Optional("chrome") String browser) throws MalformedURLException {
         this.browser = browser;
         if(browser.toLowerCase().equals("firefox")) {
-//            capabilities = new DesiredCapabilities(new FirefoxOptions());
-            webDriver = new FirefoxDriver();
+            capabilities = new DesiredCapabilities(new FirefoxOptions());
+//            webDriver = new FirefoxDriver();
         } else {
-//            capabilities = new DesiredCapabilities(new ChromeOptions());
-            webDriver = new ChromeDriver();
+            capabilities = new DesiredCapabilities(new ChromeOptions());
+//            webDriver = new ChromeDriver();
         }
 
-//        webDriver = new RemoteWebDriver(new URL("http://172.0.0.2:4444/wd/hub"), capabilities);
+        webDriver = new RemoteWebDriver(new URL("http://172.0.0.2:4444/wd/hub"), capabilities);
 
         webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         webDriver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);

@@ -11,5 +11,5 @@ scp -i awsKey src/test/resources/Dockerfile ec2-user@${PUT_HERE_IP_ADDRESS}:/hom
 scp -i awsKey src/test/resources/docker-compose.yml ec2-user@${PUT_HERE_IP_ADDRESS}:/home/ec2-user/
 ssh -i awsKey ec2-user@${PUT_HERE_IP_ADDRESS} docker-compose up -d
 ssh -i awsKey ec2-user@${PUT_HERE_IP_ADDRESS} docker build -t clone-image .
-ssh -i awsKey ec2-user@${PUT_HERE_IP_ADDRESS} docker run -d --net ec2-user_grid --name automated-code -it clone-image
-ssh -i awsKey ec2-user@${PUT_HERE_IP_ADDRESS} docker exec -w /docker-selenium-test/ automated-code mvn clean test
+ssh -i awsKey ec2-user@${PUT_HERE_IP_ADDRESS} docker run -d --net ec2-user_grid --name automated-code clone-image
+ssh -i awsKey ec2-user@${PUT_HERE_IP_ADDRESS} docker exec -w /cloud-selenium-test/ automated-code mvn clean test
