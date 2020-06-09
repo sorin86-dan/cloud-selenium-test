@@ -23,5 +23,5 @@ RUN git clone https://github.com/sorin86-dan/cloud-selenium-test.git
 #=============================================================
 # Build code
 #=============================================================
-RUN cd docker-selenium-test && \
+RUN cd cloud-selenium-test && \
     mvn clean install -DskipTests
