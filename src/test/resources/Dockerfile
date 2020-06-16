@@ -1,5 +1,4 @@
 FROM openjdk:8
-MAINTAINER Sorin Dan (dansorin2006@gmail.com)
 
 USER root
 

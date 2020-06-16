@@ -2,17 +2,19 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="TestSuite" parallel="tests" thread-count="2">
     <test name="testCloudFirefox">
-        <parameter name="browser" value="firefox"></parameter>
-        <classes>
-            <class name="com.testing.BingTest"></class>
-            <class name="com.testing.GoogleTest"></class>
-        </classes>
+        <parameter name="browser" value="firefox">
+            <classes>
+                <class name="com.testing.BingTest"></class>
+                <class name="com.testing.GoogleTest"></class>
+            </classes>
+        </parameter>
     </test>
     <test name="testCloudChrome">
-        <parameter name="browser" value="chrome"></parameter>
-        <classes>
-            <class name="com.testing.BingTest"></class>
-            <class name="com.testing.GoogleTest"></class>
-        </classes>
+        <parameter name="browser" value="">
+            <classes>
+                <class name="com.testing.BingTest"></class>
+                <class name="com.testing.GoogleTest"></class>
+            </classes>
+        </parameter>
     </test>
 </suite>

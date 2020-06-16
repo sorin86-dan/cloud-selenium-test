@@ -32,10 +32,8 @@ public class BaseTest {
         this.browser = browser;
         if(browser.toLowerCase().equals("firefox")) {
             capabilities = new DesiredCapabilities(new FirefoxOptions());
-//            webDriver = new FirefoxDriver();
         } else {
             capabilities = new DesiredCapabilities(new ChromeOptions());
-//            webDriver = new ChromeDriver();
         }
 
         webDriver = new RemoteWebDriver(new URL("http://172.0.0.2:4444/wd/hub"), capabilities);
@@ -62,7 +60,5 @@ public class BaseTest {
 
         FileUtils.copyFile(SrcFile, DestFile);
     }
-
-
 
 }
