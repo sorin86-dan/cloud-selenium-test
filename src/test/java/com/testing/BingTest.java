@@ -75,7 +75,7 @@ public class BingTest extends BaseTest {
         bingPage.fillSearchBox("cloud automated testing");
 
         assertTrue(bingPage.isSearchOutputLinkPresent());
-        assertEquals(bingPage.getSearchOutputLinks().size(), 10);
+        assertTrue(bingPage.getSearchOutputLinks().size() >= 10);
 
         try {
             bingPage.clickSearchOutputLink(id);
