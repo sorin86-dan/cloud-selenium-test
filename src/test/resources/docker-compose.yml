@@ -43,7 +43,6 @@ services:
 
 networks:
   grid:
-     ipam:
-        driver: default
-        config:
-           - subnet: 172.0.0.0/16
+    ipam:
+      config:
+        - subnet: 172.0.0.0/16
