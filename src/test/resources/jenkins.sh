@@ -12,7 +12,7 @@ aws configure set aws_access_key_id $AWS_ACCESS_KEY && \
 
 #Create EC2 instance
 aws ec2 run-instances --image-id ami-09d95fab7fff3776c \
-      --instance-type t2.micro \
+      --instance-type t2.large \
       --security-group-ids $AWS_SECURITY_GROUP \
       --key-name $AWS_KEY
 
