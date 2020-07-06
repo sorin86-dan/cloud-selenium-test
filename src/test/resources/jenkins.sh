@@ -14,10 +14,11 @@ aws configure set aws_access_key_id $AWS_ACCESS_KEY && \
 aws ec2 run-instances --image-id ami-09d95fab7fff3776c \
       --instance-type t2.large \
       --security-group-ids $AWS_SECURITY_GROUP \
-      --key-name $AWS_KEY
+      --key-name $AWS_KEY \
+      --tag-specifications 'ResourceType=instance,Tags=[{Key=SERVER,Value=automatedTests}]'
 
-EC2_IP=$(aws ec2 describe-instances | grep PublicIpAddress | awk '{print $2}' | cut -d '"' -f 2)
-EC2_ID=$(aws ec2 describe-instances | grep InstanceId | awk '{print $2}' | cut -d '"' -f 2)
+EC2_IP=$(aws ec2 describe-instances --filters 'Name=tag:SERVER,Values=automatedTests' | grep PublicIpAddress | awk '{print $2}' | cut -d '"' -f 2)
+EC2_ID=$(aws ec2 describe-instances --filters 'Name=tag:SERVER,Values=automatedTests' | grep InstanceId | awk '{print $2}' | cut -d '"' -f 2)
 
 #Install prerequisites
 ssh -o StrictHostKeyChecking=no -i $AWS_KEY ec2-user@$EC2_IP sudo yum update -y
@@ -34,6 +35,8 @@ ssh -i $AWS_KEY ec2-user@$EC2_IP docker-compose up -d
 ssh -i $AWS_KEY ec2-user@$EC2_IP docker build -t clone-image .
 ssh -i $AWS_KEY ec2-user@$EC2_IP docker run -d --net ec2-user_grid --name automated-code -it clone-image
 ssh -i $AWS_KEY ec2-user@$EC2_IP docker exec -w /cloud-selenium-test/ automated-code mvn clean test
+ssh -i $AWS_KEY ec2-user@$EC2_IP docker cp automated-code:cloud-selenium-test/target/surefire-reports/testng-results.xml .
+scp -i $AWS_KEY ec2-user@$EC2_IP:/home/ec2-user/testng-results.xml .
 
 #Delete EC2 instance
 aws ec2 terminate-instances --instance-ids $EC2_ID
