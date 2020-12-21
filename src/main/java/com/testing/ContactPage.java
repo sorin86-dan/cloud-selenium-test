@@ -13,19 +13,22 @@ public class ContactPage extends TemplatePage {
     private final static Logger logger = Logger.getLogger(ContactPage.class.getName());
 
     private final static String TITLE = "//h2";
+    private final static String NAME = "//input[@class='name']";
+    private final static String EMAIL = "//input[@class='email']";
+    private final static String WEBSITE = "//input[@class='url']";
     private final static String SUBMIT = "//button[@type='submit']";
     private final static String RESPONSE_TITLE = "//h3";
 
     @FindBy(how = How.XPATH, using = TITLE)
     private WebElement title;
 
-    @FindBy(how = How.CLASS_NAME, using = "name")
+    @FindBy(how = How.XPATH, using = NAME)
     private WebElement name;
 
-    @FindBy(how = How.CLASS_NAME, using = "email")
+    @FindBy(how = How.XPATH, using = EMAIL)
     private WebElement email;
 
-    @FindBy(how = How.CLASS_NAME, using = "url")
+    @FindBy(how = How.XPATH, using = WEBSITE)
     private WebElement website;
 
     @FindBy(how = How.CLASS_NAME, using = "textarea")
@@ -48,42 +51,30 @@ public class ContactPage extends TemplatePage {
         return title.getText();
     }
 
-    public void fillName(String text) {
-        logger.info("Filling field 'Name' with value: " + text);
-        name.clear();
-        name.click();
-        name.sendKeys(text);
+    public boolean checkNameFieldPresent() {
+        logger.info("Checking if field 'Name' is present");
+        return name.isDisplayed();
     }
 
-    public void fillEmail(String text) {
-        logger.info("Filling field 'Email' with value: " + text);
-        email.clear();
-        email.click();
-        email.sendKeys(text);
+    public boolean checkEmailFieldPresent() {
+        logger.info("Checking if field 'Email' is present");
+        return email.isDisplayed();
     }
 
-    public void fillWebsite(String text) {
-        logger.info("Filling field 'Website' with value: " + text);
-        website.clear();
-        website.click();
-        website.sendKeys(text);
+    public boolean checkWebsiteFieldPresent() {
+        logger.info("Checking if field 'Website' is present");
+        return website.isDisplayed();
     }
 
-    public void fillMessage(String text) {
-        logger.info("Filling field 'Message' with value: " + text);
-        message.clear();
-        message.click();
-        message.sendKeys(text);
+    public boolean checkMessageFieldPresent() {
+        logger.info("Checking if field 'Message' is present");
+        return message.isDisplayed();
     }
 
-    public void clickSubmitButton() {
-        logger.info("Clicking 'Submit' button");
-        submit.click();
+    public boolean checkSubmitButtonPresent() {
+        logger.info("Checking if 'Submit' button is present");
+        return submit.isDisplayed();
     }
 
-    public String getResponseTitle() {
-        logger.info("Retrieving response title");
-        return responseTitle.getText();
-    }
 
 }
