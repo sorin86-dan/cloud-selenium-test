@@ -4,16 +4,16 @@
     <test name="testCloudFirefox">
         <parameter name="browser" value="firefox">
             <classes>
-                <class name="com.testing.BingTest"></class>
-                <class name="com.testing.GoogleTest"></class>
+                <class name="com.testing.AboutPageTest"></class>
+                <class name="com.testing.GooglePageTest"></class>
             </classes>
         </parameter>
     </test>
     <test name="testCloudChrome">
         <parameter name="browser" value="">
             <classes>
-                <class name="com.testing.BingTest"></class>
-                <class name="com.testing.GoogleTest"></class>
+                <class name="com.testing.AboutPageTest"></class>
+                <class name="com.testing.GooglePageTest"></class>
             </classes>
         </parameter>
     </test>
