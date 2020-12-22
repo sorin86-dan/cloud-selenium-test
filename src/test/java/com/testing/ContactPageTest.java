@@ -20,8 +20,8 @@ public class ContactPageTest extends BaseTest {
         webDriver.get("https://t3ch5tuff5.wordpress.com");
         ContactPage contactPage = new ContactPage(webDriver).clickContactMenu();
 
-        assertEquals("Contact", contactPage.getPageTitle());
-        assertEquals("Send Us a Message", contactPage.getTitle());
+        assertEquals(contactPage.getPageTitle(), "Contact");
+        assertEquals(contactPage.getTitle(), "Send Us a Message");
         assertTrue(contactPage.checkNameFieldPresent());
         assertTrue(contactPage.checkEmailFieldPresent());
         assertTrue(contactPage.checkWebsiteFieldPresent());
