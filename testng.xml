@@ -12,7 +12,7 @@
         </parameter>
     </test>
     <test name="testCloudChrome">
-        <parameter name="browser" value="">
+        <parameter name="browser" value="chrome">
             <classes>
                 <class name="com.testing.MainPageTest"></class>
                 <class name="com.testing.BlogPageTest"></class>
