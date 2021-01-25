@@ -18,6 +18,7 @@ public class MainPage extends TemplatePage {
     @FindBy(how = How.XPATH, using = TITLE)
     private WebElement title;
 
+
     public MainPage(WebDriver webDriver) {
         super(webDriver);
         this.webDriver = webDriver;

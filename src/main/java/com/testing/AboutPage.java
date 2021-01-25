@@ -22,7 +22,6 @@ public class AboutPage extends TemplatePage {
     private WebElement description;
 
 
-
     public AboutPage(WebDriver webDriver) {
         super(webDriver);
         this.webDriver = webDriver;

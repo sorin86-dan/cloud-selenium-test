@@ -76,5 +76,4 @@ public class ContactPage extends TemplatePage {
         return submit.isDisplayed();
     }
 
-
 }

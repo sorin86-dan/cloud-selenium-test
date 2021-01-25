@@ -14,7 +14,7 @@ public class TemplatePage extends PageFactory {
     private WebDriver webDriver;
     private final static Logger logger = Logger.getLogger(TemplatePage.class.getName());
 
-    private final static String SITE_MENU = "//ul[@id='menu-primary']/li";
+    private final static String SITE_MENU = "//ul[@id='menu-primary-1']/li";
 
     @FindBy(how = How.CLASS_NAME, using = "site-title")
     private WebElement siteTitle;
@@ -24,6 +24,7 @@ public class TemplatePage extends PageFactory {
 
     @FindBy(how = How.XPATH, using = SITE_MENU)
     private List<WebElement> siteMenu;
+
 
     public TemplatePage(WebDriver webDriver) {
         this.webDriver = webDriver;
