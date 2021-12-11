@@ -2,7 +2,7 @@
 
 1. Start Selenium hub and nodes connected to it.
 2. Connect test automation code to the ip of the Selenium Hub.
-2. Start running the tests.
+3. Start running the tests.
 
 ## Start Selenium Grid made of a hub, a Chrome node and a Firefox node without using json files
 
