@@ -18,9 +18,9 @@ public class MainPageTest extends BaseTest {
         MainPage mainPage = new TemplatePage(webDriver).clickHomeMenu();
 
         assertEquals(mainPage.getTitle(), "Welcome!");
-        assertEquals(mainPage.getArticleTitle(1),"Containerization in test automation (III) – UI testing using Selenium Grid and Testcontainers");
-        assertEquals(mainPage.getArticleTitle(2),"Test automation and Cloud technologies — Part II: Using AWS ECR and AWS EC2");
-        assertEquals(mainPage.getArticleTitle(3),"Containerization in test automation (II) – Containerization with microservices testing");
+        assertEquals(mainPage.getArticleTitle(1),"Test automation and Containerization (IV) – UI testing using Selenium Grid and Kubernetes");
+        assertEquals(mainPage.getArticleTitle(2),"Test automation and Containerization (III) – UI testing using Selenium Grid and Testcontainers");
+        assertEquals(mainPage.getArticleTitle(3),"Test automation and Cloud technologies — Part II: Using AWS ECR and AWS EC2");
     }
 
 }
